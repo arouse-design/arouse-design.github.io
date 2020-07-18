@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mainPage\">\n<!-- <div class=\"imageCont\" (click)=\"make the yellow background move to the right and serve as a background for text in a modal\">\n    <img class=\"homeImage\" src=\"../../assets/images/final2.png\">\n</div> -->\n<!-- <div class=\"imageCont\" (click)=\"enlarge()\">\n    <img class=\"homeImage\" src=\"../../assets/images/final2.png\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/IMG_9167 copy.jpg\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/61031261_293797678239116_6914847181341982720_n (1).png\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/unta4itdled.png\">\n</div> -->\n<div *ngFor=\"let item of content\">\n    <div #homeItem *ngIf=\"item.enlarged || !itemEnlarged\" [@home]=\"item.enlarged ? 'enlarged': ''\" [ngClass]=\"{'enlarged': item.enlarged}\" (click)=\"enlarge(item)\" class=\"imageCont\">\n        <img class=\"homeImage\" src=\"{{item.link}}\">\n        <!-- <p *ngIf=\"item.enlarged\">Amy Smells</p> -->\n    </div> \n</div>\n</div>\n<!-- <app-landing-page></app-landing-page> -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mainPage\">\n<!-- <div class=\"imageCont\" (click)=\"make the yellow background move to the right and serve as a background for text in a modal\">\n    <img class=\"homeImage\" src=\"../../assets/images/final2.png\">\n</div> -->\n<!-- <div class=\"imageCont\" (click)=\"enlarge()\">\n    <img class=\"homeImage\" src=\"../../assets/images/final2.png\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/IMG_9167 copy.jpg\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/61031261_293797678239116_6914847181341982720_n (1).png\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/unta4itdled.png\">\n</div> -->\n<div *ngFor=\"let item of content\">\n    <div #homeItem *ngIf=\"item.enlarged || !itemEnlarged\" [@home]=\"item.enlarged ? 'enlarged': ''\" [ngClass]=\"{'enlarged': item.enlarged}\" (click)=\"enlarge(item)\" class=\"imageCont\">\n        <img class=\"homeImage\" src=\"{{item.link}}\" alt=\"{{item.altLink}}\">\n        <!-- <p *ngIf=\"item.enlarged\">Amy Smells</p> -->\n    </div> \n</div>\n</div>\n<!-- <app-landing-page></app-landing-page> -->\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"BarContainer\">\n<img class=\"logo\" src=\"../../assets/images/107600179_751264419009341_7421634069324728299_n.png\">\n<div class=\"navcontainer\">\n    <p> Home </p>\n    <p> Projects </p>\n    <p [routerLink]=\"['/about']\"> About </p>\n    <p> Contact </p>\n</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"BarContainer\">\n<img class=\"logo\" src=\"./assets/images/107600179_751264419009341_7421634069324728299_n.png\" alt=\"../../assets/images/107600179_751264419009341_7421634069324728299_n.png\">\n<div class=\"navcontainer\">\n    <p> Home </p>\n    <p> Projects </p>\n    <p [routerLink]=\"['/about']\"> About </p>\n    <p> Contact </p>\n</div>\n</div>");
 
 /***/ }),
 
@@ -581,10 +581,10 @@ let HomePageComponent = class HomePageComponent {
     constructor() {
         this.itemEnlarged = false;
         this.content = [
-            { link: '../../assets/images/final2.png', enlarged: false },
-            { link: '../../assets/images/IMG_9167 copy.jpg', enlarged: false },
-            { link: '../../assets/images/61031261_293797678239116_6914847181341982720_n (1).png', enlarged: false },
-            { link: '../../assets/images/unta4itdled.png', enlarged: false },
+            { link: './assets/images/final2.png', altLink: '../../assets/images/final2.png', enlarged: false },
+            { link: './assets/images/IMG_9167 copy.jpg', altLink: '../../assets/images/IMG_9167 copy.jpg', enlarged: false },
+            { link: './assets/images/61031261_293797678239116_6914847181341982720_n (1).png', altLink: '../../assets/images/61031261_293797678239116_6914847181341982720_n (1).png', enlarged: false },
+            { link: './assets/images/unta4itdled.png', altLink: '../../assets/images/unta4itdled.png', enlarged: false },
         ];
     }
     ngOnInit() {
