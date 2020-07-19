@@ -592,8 +592,11 @@ let HomePageComponent = class HomePageComponent {
     }
     enlarge(item) {
         item.enlarged = !item.enlarged;
-        if (item.enlarged = true) {
+        if (item.enlarged === true) {
             this.itemEnlarged = true;
+        }
+        else {
+            this.itemEnlarged = false;
         }
     }
 };

@@ -1171,8 +1171,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function enlarge(item) {
           item.enlarged = !item.enlarged;
 
-          if (item.enlarged = true) {
+          if (item.enlarged === true) {
             this.itemEnlarged = true;
+          } else {
+            this.itemEnlarged = false;
           }
         }
       }]);
