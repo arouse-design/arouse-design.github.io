@@ -91,7 +91,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"mainPage\">\n<!-- <div class=\"imageCont\" (click)=\"make the yellow background move to the right and serve as a background for text in a modal\">\n    <img class=\"homeImage\" src=\"../../assets/images/final2.png\">\n</div> -->\n<!-- <div class=\"imageCont\" (click)=\"enlarge()\">\n    <img class=\"homeImage\" src=\"../../assets/images/final2.png\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/IMG_9167 copy.jpg\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/61031261_293797678239116_6914847181341982720_n (1).png\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/unta4itdled.png\">\n</div> -->\n<div *ngFor=\"let item of content\">\n    <div #homeItem *ngIf=\"item.enlarged || !itemEnlarged\" [@home]=\"item.enlarged ? 'enlarged': ''\" [ngClass]=\"{'enlarged': item.enlarged}\" (click)=\"enlarge(item)\" class=\"imageCont\">\n        <img class=\"homeImage\" src=\"{{item.link}}\" alt=\"{{item.altLink}}\">\n        <!-- <p *ngIf=\"item.enlarged\">Amy Smells</p> -->\n    </div> \n</div>\n</div>\n<!-- <app-landing-page></app-landing-page> -->\n";
+    __webpack_exports__["default"] = "<div class=\"mainPage\">\n<!-- <div class=\"imageCont\" (click)=\"make the yellow background move to the right and serve as a background for text in a modal\">\n    <img class=\"homeImage\" src=\"../../assets/images/final2.png\">\n</div> -->\n<!-- <div class=\"imageCont\" (click)=\"enlarge()\">\n    <img class=\"homeImage\" src=\"../../assets/images/final2.png\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/IMG_9167 copy.jpg\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/61031261_293797678239116_6914847181341982720_n (1).png\">\n</div>\n<div class=\"imageCont\">\n    <img class=\"homeImage\" src=\"../../assets/images/unta4itdled.png\">\n</div> -->\n<div *ngFor=\"let item of content\">\n    <div #homeItem *ngIf=\"item.enlarged || !itemEnlarged\" [@home]=\"item.enlarged ? 'enlarged': ''\" [ngClass]=\"{'enlarged': item.enlarged}\" (click)=\"enlarge(item)\" class=\"imageCont\">\n        <div class=\"mainContainer\">\n        <img class=\"homeImage\" src=\"{{item.link}}\" alt=\"{{item.altLink}}\">\n        <div *ngIf=\"item.enlarged\" class=\"textCont\">\n        <h1>{{item.title}}</h1>\n        <p>{{item.text}}</p>\n        </div>\n        </div>\n        <!-- <div class=\"showOnhover\">\n            <p>Hello</p>\n            <button>VIEW</button>\n        </div> -->\n        <div class=\"subContainer\" *ngIf=\"item.enlarged\" >\n        <div *ngFor=\"let subItem of item.content\">\n            <img class=\"subImage\" src=\"{{subItem.link}}\" alt=\"{{subItem.altLink}}\">\n        </div>\n        </div>\n    </div> \n</div>\n</div>\n<!-- <app-landing-page></app-landing-page> -->\n";
     /***/
   },
 
@@ -131,7 +131,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"BarContainer\">\n<img class=\"logo\" src=\"./assets/images/107600179_751264419009341_7421634069324728299_n.png\" alt=\"../../assets/images/107600179_751264419009341_7421634069324728299_n.png\">\n<div class=\"navcontainer\">\n    <p> Home </p>\n    <p> Projects </p>\n    <p [routerLink]=\"['/about']\"> About </p>\n    <p> Contact </p>\n</div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"BarContainer\">\n<img class=\"logo\" src=\"./assets/images/107600179_751264419009341_7421634069324728299_n.png\" alt=\"../../assets/images/107600179_751264419009341_7421634069324728299_n.png\">\n<div class=\"navcontainer\">\n    <p [routerLink]=\"['/']\"> Home </p>\n    <p> Projects </p>\n    <p [routerLink]=\"['/about']\"> About </p>\n    <p> Contact </p>\n</div>\n</div>";
     /***/
   },
 
@@ -1141,19 +1141,118 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.content = [{
           link: './assets/images/final2.png',
           altLink: '../../assets/images/final2.png',
-          enlarged: false
+          title: 'Cargo Retail Space',
+          text: 'The focus for this project was to design a retail space for a range of artisan designers in a cargo container in Bristol. The design centred around visual merchandising and wellness in design, ensuring to keep an equal balance of a selection of products from the brands whilst, overall managing a calm space for buyers with a valuable function for a community of designers. My final design has a minimalistic style with pale tones to compliment the products. Within this project I also explored logo design and how to implement branding into a space. I carried out a lot of market research for this project and learnt a lot about my local artisan designers.',
+          enlarged: false,
+          content: [{
+            link: './assets/images/CargoContainerRetailsSpace/final1.png',
+            altLink: '../../assets/images/CargoContainerRetailsSpace/final1.png',
+            text: 'CONTENT FOR FINAL 1'
+          }, {
+            link: './assets/images/CargoContainerRetailsSpace/final3.png',
+            altLink: '../../assets/images/CargoContainerRetailsSpace/final3.png',
+            text: 'CONTENT FOR FINAL 3'
+          }, {
+            link: './assets/images/CargoContainerRetailsSpace/final4.png',
+            altLink: '../../assets/images/CargoContainerRetailsSpace/final4.png',
+            text: 'CONTENT FOR FINAL 4'
+          }, {
+            link: './assets/images/CargoContainerRetailsSpace/final5.png',
+            altLink: '../../assets/images/CargoContainerRetailsSpace/final5.png',
+            text: 'CONTENT FOR FINAL 5'
+          }]
         }, {
           link: './assets/images/IMG_9167 copy.jpg',
           altLink: '../../assets/images/IMG_9167 copy.jpg',
-          enlarged: false
+          title: 'Sustainable Styling',
+          text: 'This was a group styling project, choosing our own trend to create our individual magazines. I created a magazine spread that showcased my styled images and focused on promoting a sustainable lifestyle. This styling project allowed me to combine my interest in interiors and photography, playing around with different lighting and editing to make all the images fit together cohesively in the final magazine. ',
+          enlarged: false,
+          content: [{
+            link: './assets/images/SustainableStylingForMagazine/IMG_9173 copy.jpg',
+            altLink: '../../assets/images/SustainableStylingForMagazine/IMG_9173 copy.jpg',
+            text: 'CONTENT FOR FINAL 1'
+          }, {
+            link: './assets/images/SustainableStylingForMagazine/55464974_335461307174937_6684669318329794560_n.jpg',
+            altLink: '../../assets/images/SustainableStylingForMagazine/55464974_335461307174937_6684669318329794560_n.jpg',
+            text: 'CONTENT FOR FINAL 3'
+          }, {
+            link: './assets/images/SustainableStylingForMagazine/_MG_1594 copy.jpg',
+            altLink: '../../assets/images/SustainableStylingForMagazine/_MG_1594 copy.jpg',
+            text: 'CONTENT FOR FINAL 4'
+          }, {
+            link: './assets/images/SustainableStylingForMagazine/Screenshot 2019-03-20 at 11.12.00.png',
+            altLink: '../../assets/images/SustainableStylingForMagazine/Screenshot 2019-03-20 at 11.12.00.png',
+            text: 'CONTENT FOR FINAL 5'
+          }]
         }, {
           link: './assets/images/61031261_293797678239116_6914847181341982720_n (1).png',
           altLink: '../../assets/images/61031261_293797678239116_6914847181341982720_n (1).png',
-          enlarged: false
+          title: 'Japanese Serviced Apartment',
+          text: 'This is a project where I re-designed a serviced apartment in Japan that is intended for business executives, bringing in traditional and modern Japanese design style elements. This design brings in natural elements and trending colours to create a space that is relaxing for the working traveller as well as uplifting at the end of a long day. As a part of this project I created styled images for a welcome brochure. To go along side my apartment design I created my own laser cut products. I designed them in illustrator inspired by Japanese patterns such as the blossom tree.',
+          enlarged: false,
+          content: [{
+            link: './assets/images/JapaneseServicedAppartment/61031261_293797678239116_6914847181341982720_n (1).png',
+            altLink: '../../assets/images/JapaneseServicedAppartment/61031261_293797678239116_6914847181341982720_n (1).png',
+            text: 'CONTENT FOR FINAL 1'
+          }, {
+            link: './assets/images/JapaneseServicedAppartment/61162955_432506604247337_5029785519731507200_n.png',
+            altLink: '../../assets/images/JapaneseServicedAppartment/61162955_432506604247337_5029785519731507200_n.png',
+            text: 'CONTENT FOR FINAL 3'
+          }, {
+            link: './assets/images/JapaneseServicedAppartment/60842139_1400813623393276_2678768650088873984_n.png',
+            altLink: '../../assets/images/JapaneseServicedAppartment/60842139_1400813623393276_2678768650088873984_n.png',
+            text: 'CONTENT FOR FINAL 4'
+          }, {
+            link: './assets/images/JapaneseServicedAppartment/IMG_9332 copy 2.JPG',
+            altLink: '../../assets/images/JapaneseServicedAppartment/IMG_9332 copy 2.JPG',
+            text: 'CONTENT FOR FINAL 5'
+          }]
         }, {
-          link: './assets/images/unta4itdled.png',
-          altLink: '../../assets/images/unta4itdled.png',
-          enlarged: false
+          link: './assets/images/HarringtonHomesShowHome/Amy Rouse, 201- bedroom render.png',
+          altLink: '../../assets/images/HarringtonHomesShowHome/Amy Rouse, 201- bedroom render.png',
+          title: 'Harrington Homes',
+          text: 'This was a live brief with Harrington Homes show home in Plymouth where I designed a concept for their new apartments in my second year of my degree. This space is designed for a young, working professional couple therefore it includes contemporary colours and furniture to compel to this market of people. ',
+          enlarged: false,
+          content: [{
+            link: './assets/images/HarringtonHomesShowHome/53726541_292266188135838_6436163889267736576_n.jpg',
+            altLink: '../../assets/images/HarringtonHomesShowHome/53726541_292266188135838_6436163889267736576_n.jpg',
+            text: 'CONTENT FOR FINAL 1'
+          }, {
+            link: './assets/images/HarringtonHomesShowHome/Screenshot 2019-03-13 at 18.42.44.png',
+            altLink: '../../assets/images/HarringtonHomesShowHome/Screenshot 2019-03-13 at 18.42.44.png',
+            text: 'CONTENT FOR FINAL 3'
+          }, {
+            link: './assets/images/HarringtonHomesShowHome/53797687_263535004576678_78043502843265024_n.jpg',
+            altLink: '../../assets/images/HarringtonHomesShowHome/53797687_263535004576678_78043502843265024_n.jpg',
+            text: 'CONTENT FOR FINAL 4'
+          }, {
+            link: './assets/images/HarringtonHomesShowHome/living room render 2.png',
+            altLink: '../../assets/images/HarringtonHomesShowHome/living room render 2.png',
+            text: 'CONTENT FOR FINAL 5'
+          }]
+        }, {
+          link: './assets/images/Photography/IMG_7302.jpg',
+          altLink: '../../assets/images/Photography/IMG_7302.jpg',
+          title: 'Photography',
+          text: 'Studying photography at A-level really fostered my eye for aesthetic and composition and continues to be used in my interior design work through styling and design communication. These showcase my final year projects where I explored a range of subjects and photographic styles such as natural/urban landscapes then everyday objects.',
+          enlarged: false,
+          content: [{
+            link: './assets/images/Photography/IMG_7302.jpg',
+            altLink: '../../assets/images/Photography/IMG_7302.jpg',
+            text: 'CONTENT FOR FINAL 1'
+          }, {
+            link: './assets/images/HarringtonHomesShowHome/Screenshot 2019-03-13 at 18.42.44.png',
+            altLink: '../../assets/images/HarringtonHomesShowHome/Screenshot 2019-03-13 at 18.42.44.png',
+            text: 'CONTENT FOR FINAL 3'
+          }, {
+            link: './assets/images/HarringtonHomesShowHome/53797687_263535004576678_78043502843265024_n.jpg',
+            altLink: '../../assets/images/HarringtonHomesShowHome/53797687_263535004576678_78043502843265024_n.jpg',
+            text: 'CONTENT FOR FINAL 4'
+          }, {
+            link: './assets/images/HarringtonHomesShowHome/living room render 2.png',
+            altLink: '../../assets/images/HarringtonHomesShowHome/living room render 2.png',
+            text: 'CONTENT FOR FINAL 5'
+          }]
         }];
       }
 
