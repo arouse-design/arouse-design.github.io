@@ -1019,7 +1019,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var AppComponent = function AppComponent() {
       _classCallCheck(this, AppComponent);
 
-      this.title = 'nwPortfolio';
+      this.title = 'AR-Designs';
     };
 
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1590,7 +1590,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }))]), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["transition"])(':leave', [Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["animate"])('1s ease', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["style"])({
         marginLeft: '-50vw',
         marginTop: '-50vh',
-        scale: "0.3",
+        transform: "scale(0.3)",
         opacity: 0
       }))])])],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(

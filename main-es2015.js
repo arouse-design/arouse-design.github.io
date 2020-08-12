@@ -504,7 +504,7 @@ __webpack_require__.r(__webpack_exports__);
 
 let AppComponent = class AppComponent {
     constructor() {
-        this.title = 'nwPortfolio';
+        this.title = 'AR-Designs';
     }
 };
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -814,7 +814,7 @@ LandingPageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["animate"])('1s ease-in-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["style"])({ opacity: '1', marginBottom: '*' })),
                 ]),
                 Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["transition"])(':leave', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["animate"])('1s ease', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["style"])({ marginLeft: '-50vw', marginTop: '-50vh', scale: "0.3", opacity: 0 })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["animate"])('1s ease', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["style"])({ marginLeft: '-50vw', marginTop: '-50vh', transform: "scale(0.3)", opacity: 0 })),
                 ]),
             ]),
         ],
