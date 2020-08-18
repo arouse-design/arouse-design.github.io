@@ -151,7 +151,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div @bar *ngIf=\"landingService.logo\" class=\"BarContainer\">\n<img class=\"logo\" src=\"./assets/images/107600179_751264419009341_7421634069324728299_n.png\" alt=\"../../assets/images/107600179_751264419009341_7421634069324728299_n.png\">\n<div class=\"navcontainer\">\n    <p [routerLink]=\"['/']\"> Home </p>\n    <p [routerLink]=\"['/projects']\"> Projects </p>\n    <p [routerLink]=\"['/about']\"> About </p>\n    <p [routerLink]=\"['/contact']\"> Contact </p>\n</div>\n</div>";
+    __webpack_exports__["default"] = "<div @bar *ngIf=\"landingService.logo\" class=\"BarContainer\">\n<img class=\"logo\" src=\"./assets/images/107600179_751264419009341_7421634069324728299_n.png\" alt=\"../../assets/images/107600179_751264419009341_7421634069324728299_n.png\">\n<div class=\"navcontainer\">\n    <p [ngClass]=\"{'active': selectedmenu == 'Home'}\" [routerLink]=\"['/']\"> Home </p>\n    <p [ngClass]=\"{'active': selectedmenu == 'Projects'}\" [routerLink]=\"['/projects']\"> Projects </p>\n    <p [ngClass]=\"{'active': selectedmenu == 'About'}\" [routerLink]=\"['/about']\"> About </p>\n    <p [ngClass]=\"{'active': selectedmenu == 'Contact'}\" [routerLink]=\"['/contact']\"> Contact </p>\n</div>\n</div>";
     /***/
   },
 
@@ -838,6 +838,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var _this = this;
 
           this.landingService.showLogo();
+          this.landingService.updateLocation('About');
           setTimeout(function () {
             console.log(_this.homeItems);
           }, 3000);
@@ -1202,6 +1203,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "ngOnInit",
         value: function ngOnInit() {
           this.landingService.showLogo();
+          this.landingService.updateLocation('Contact');
         }
       }]);
 
@@ -1419,6 +1421,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this2 = this;
 
+          this.landingService.updateLocation('Projects');
           this.landingService.showLogo();
           setTimeout(function () {
             console.log(_this2.homeItems);
@@ -1549,6 +1552,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function ngOnInit() {
           var _this3 = this;
 
+          this.landingService.updateLocation('Home');
           setTimeout(function () {
             _this3.loaded = true;
           }, 100);
@@ -1631,18 +1635,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
 
     var LandingService = /*#__PURE__*/function () {
       function LandingService() {
         _classCallCheck(this, LandingService);
 
         this.logo = false;
+        this.position = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"]('');
+        this.currentPos = this.position.asObservable();
       }
 
       _createClass(LandingService, [{
         key: "showLogo",
         value: function showLogo() {
           this.logo = true;
+        }
+      }, {
+        key: "updateLocation",
+        value: function updateLocation(location) {
+          this.position.next(location);
         }
       }]);
 
@@ -1671,7 +1688,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".navcontainer {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  height: 100%;\n  width: 23vw;\n}\n\np {\n  margin: 0px;\n  color: #b4ccc1;\n  font-size: 30px;\n}\n\n.BarContainer {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2YmFyL0M6XFxVc2Vyc1xcTm9nZG9cXERlc2t0b3BcXGFteS1hcHAgKDEpL3NyY1xcYXBwXFxuYXZiYXJcXG5hdmJhci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbmF2YmFyL25hdmJhci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGFBQUE7RUFDQSw2QkFBQTtFQUNBLG1CQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7QUNDSjs7QURDQTtFQUNJLFdBQUE7RUFDQSxjQUFBO0VBQ0EsZUFBQTtBQ0VKOztBREFBO0VBQ0ksYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUNHSiIsImZpbGUiOiJzcmMvYXBwL25hdmJhci9uYXZiYXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubmF2Y29udGFpbmVye1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYXJvdW5kO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIHdpZHRoOiAyM3Z3O1xyXG59XHJcbnB7XHJcbiAgICBtYXJnaW46IDBweDtcclxuICAgIGNvbG9yOiAjYjRjY2MxO1xyXG4gICAgZm9udC1zaXplOiAzMHB4O1xyXG59XHJcbi5CYXJDb250YWluZXJ7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufSIsIi5uYXZjb250YWluZXIge1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgaGVpZ2h0OiAxMDAlO1xuICB3aWR0aDogMjN2dztcbn1cblxucCB7XG4gIG1hcmdpbjogMHB4O1xuICBjb2xvcjogI2I0Y2NjMTtcbiAgZm9udC1zaXplOiAzMHB4O1xufVxuXG4uQmFyQ29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufSJdfQ== */";
+    __webpack_exports__["default"] = ".navcontainer {\n  display: flex;\n  justify-content: space-around;\n  align-items: center;\n  height: 100%;\n  width: 23vw;\n}\n\np {\n  margin: 0px;\n  color: #b4ccc1;\n  font-size: 30px;\n}\n\n.BarContainer {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.navcontainer p {\n  padding: 0 15px;\n  line-height: 64px;\n  color: #A4C6E3;\n  display: block;\n  position: relative;\n  transition: all 0.3s ease-in;\n}\n\n/* .nav-container ul li > a:hover{\n  color: white;\n  transition: all 0.3s ease-in;\n} */\n\n.navcontainer p:hover,\n.navcontainer p.active {\n  /* background: rgba(197, 199, 200); */\n  color: #A4B7E3;\n  transition: all 0.3s ease-in;\n}\n\n.navcontainer p:after {\n  content: \"\";\n  position: absolute;\n  left: 50%;\n  right: 50%;\n  bottom: 0;\n  background: #A4B7E3;\n  transition: all 0.3s ease-in;\n}\n\n.navcontainer p.active:after,\n.navcontainer p:hover:after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: #A4B7E3;\n  transition: all 0.3s ease-in;\n  height: 2px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbmF2YmFyL0M6XFxVc2Vyc1xcTm9nZG9cXERlc2t0b3BcXGFteS1hcHAgKDEpL3NyY1xcYXBwXFxuYXZiYXJcXG5hdmJhci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbmF2YmFyL25hdmJhci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGFBQUE7RUFDQSw2QkFBQTtFQUNBLG1CQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7QUNDSjs7QURDQTtFQUNJLFdBQUE7RUFDQSxjQUFBO0VBQ0EsZUFBQTtBQ0VKOztBREFBO0VBQ0ksYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUNHSjs7QUREQTtFQUNJLGVBQUE7RUFDQSxpQkFBQTtFQUNBLGNBQUE7RUFDQSxjQUFBO0VBQ0Esa0JBQUE7RUFDQSw0QkFBQTtBQ0lKOztBREZFOzs7R0FBQTs7QUFJQTs7RUFFRSxxQ0FBQTtFQUNBLGNBQUE7RUFDQSw0QkFBQTtBQ0tKOztBREhFO0VBQ0UsV0FBQTtFQUNBLGtCQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSxTQUFBO0VBQ0EsbUJBQUE7RUFDQSw0QkFBQTtBQ01KOztBREpFOztFQUVJLFdBQUE7RUFDQSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxRQUFBO0VBQ0EsU0FBQTtFQUNBLG1CQUFBO0VBQ0EsNEJBQUE7RUFDQSxXQUFBO0FDT04iLCJmaWxlIjoic3JjL2FwcC9uYXZiYXIvbmF2YmFyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm5hdmNvbnRhaW5lcntcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICB3aWR0aDogMjN2dztcclxufVxyXG5we1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbiAgICBjb2xvcjogI2I0Y2NjMTtcclxuICAgIGZvbnQtc2l6ZTogMzBweDtcclxufVxyXG4uQmFyQ29udGFpbmVye1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuLm5hdmNvbnRhaW5lciBwe1xyXG4gICAgcGFkZGluZzogMCAxNXB4O1xyXG4gICAgbGluZS1oZWlnaHQ6IDY0cHg7XHJcbiAgICBjb2xvcjogI0E0QzZFMztcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbjtcclxuICB9XHJcbiAgLyogLm5hdi1jb250YWluZXIgdWwgbGkgPiBhOmhvdmVye1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbjtcclxuICB9ICovXHJcbiAgLm5hdmNvbnRhaW5lciBwOmhvdmVyLFxyXG4gIC5uYXZjb250YWluZXIgcC5hY3RpdmV7XHJcbiAgICAvKiBiYWNrZ3JvdW5kOiByZ2JhKDE5NywgMTk5LCAyMDApOyAqL1xyXG4gICAgY29sb3I6ICNBNEI3RTM7XHJcbiAgICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlLWluO1xyXG4gIH1cclxuICAubmF2Y29udGFpbmVyIHA6YWZ0ZXJ7XHJcbiAgICBjb250ZW50OiAnJztcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGxlZnQ6IDUwJTtcclxuICAgIHJpZ2h0OiA1MCU7XHJcbiAgICBib3R0b206IDA7XHJcbiAgICBiYWNrZ3JvdW5kOiAjQTRCN0UzO1xyXG4gICAgdHJhbnNpdGlvbjogYWxsIDAuM3MgZWFzZS1pbjtcclxuICB9XHJcbiAgLm5hdmNvbnRhaW5lciBwLmFjdGl2ZTphZnRlcixcclxuICAubmF2Y29udGFpbmVyIHA6aG92ZXI6YWZ0ZXJ7XHJcbiAgICAgIGNvbnRlbnQ6ICcnO1xyXG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgIGxlZnQ6IDA7XHJcbiAgICAgIHJpZ2h0OiAwO1xyXG4gICAgICBib3R0b206IDA7XHJcbiAgICAgIGJhY2tncm91bmQ6ICNBNEI3RTM7XHJcbiAgICAgIHRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2UtaW47XHJcbiAgICAgIGhlaWdodDogMnB4O1xyXG4gIH0iLCIubmF2Y29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1hcm91bmQ7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGhlaWdodDogMTAwJTtcbiAgd2lkdGg6IDIzdnc7XG59XG5cbnAge1xuICBtYXJnaW46IDBweDtcbiAgY29sb3I6ICNiNGNjYzE7XG4gIGZvbnQtc2l6ZTogMzBweDtcbn1cblxuLkJhckNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLm5hdmNvbnRhaW5lciBwIHtcbiAgcGFkZGluZzogMCAxNXB4O1xuICBsaW5lLWhlaWdodDogNjRweDtcbiAgY29sb3I6ICNBNEM2RTM7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHRyYW5zaXRpb246IGFsbCAwLjNzIGVhc2UtaW47XG59XG5cbi8qIC5uYXYtY29udGFpbmVyIHVsIGxpID4gYTpob3ZlcntcbiAgY29sb3I6IHdoaXRlO1xuICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlLWluO1xufSAqL1xuLm5hdmNvbnRhaW5lciBwOmhvdmVyLFxuLm5hdmNvbnRhaW5lciBwLmFjdGl2ZSB7XG4gIC8qIGJhY2tncm91bmQ6IHJnYmEoMTk3LCAxOTksIDIwMCk7ICovXG4gIGNvbG9yOiAjQTRCN0UzO1xuICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlLWluO1xufVxuXG4ubmF2Y29udGFpbmVyIHA6YWZ0ZXIge1xuICBjb250ZW50OiBcIlwiO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGxlZnQ6IDUwJTtcbiAgcmlnaHQ6IDUwJTtcbiAgYm90dG9tOiAwO1xuICBiYWNrZ3JvdW5kOiAjQTRCN0UzO1xuICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlLWluO1xufVxuXG4ubmF2Y29udGFpbmVyIHAuYWN0aXZlOmFmdGVyLFxuLm5hdmNvbnRhaW5lciBwOmhvdmVyOmFmdGVyIHtcbiAgY29udGVudDogXCJcIjtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICByaWdodDogMDtcbiAgYm90dG9tOiAwO1xuICBiYWNrZ3JvdW5kOiAjQTRCN0UzO1xuICB0cmFuc2l0aW9uOiBhbGwgMC4zcyBlYXNlLWluO1xuICBoZWlnaHQ6IDJweDtcbn0iXX0= */";
     /***/
   },
 
@@ -1718,18 +1735,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_animations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/animations */
     "./node_modules/@angular/animations/fesm2015/animations.js");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var NavbarComponent = /*#__PURE__*/function () {
-      function NavbarComponent(landingService) {
+      function NavbarComponent(landingService, router, activeRoute) {
         _classCallCheck(this, NavbarComponent);
 
         this.landingService = landingService;
+        this.router = router;
+        this.activeRoute = activeRoute;
         this.menuOpen = true;
       }
 
       _createClass(NavbarComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this5 = this;
+
+          this.landingService.currentPos.subscribe(function (pos) {
+            console.log(pos);
+
+            _this5.selectmenu(pos);
+          });
+        }
+      }, {
+        key: "selectmenu",
+        value: function selectmenu(menuitem) {
+          this.selectedmenu = menuitem;
+        }
       }]);
 
       return NavbarComponent;
@@ -1738,6 +1776,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     NavbarComponent.ctorParameters = function () {
       return [{
         type: _landing_service__WEBPACK_IMPORTED_MODULE_2__["LandingService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
       }];
     };
 
